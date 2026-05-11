@@ -2,6 +2,8 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { AppShell } from '@/components/layout/AppShell';
 import { Dashboard } from '@/pages/Dashboard';
+import { TreePage } from '@/pages/TreePage';
+import { KnowledgeDashboard } from '@/pages/KnowledgeDashboard';
 import { SearchPage } from '@/pages/SearchPage';
 import { QuizPage } from '@/pages/QuizPage';
 import { LibraryPage } from '@/pages/LibraryPage';
@@ -34,13 +36,15 @@ function AnimatedRoutes() {
       <motion.div key={location.pathname} variants={pageVariants} initial="initial" animate="animate" exit="exit" className="h-full">
         <Routes location={location}>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<ProtectedRoute><KnowledgeDashboard /></ProtectedRoute>} />
           <Route path="/*" element={
             <ProtectedRoute>
               <AppShell>
                 <ErrorBoundary>
                   <Routes>
-                    <Route path="/"         element={<Dashboard />} />
-                    <Route path="/search"   element={<SearchPage />} />
+                    <Route path="/tree"      element={<TreePage />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/search"    element={<SearchPage />} />
                     <Route path="/quiz"     element={<QuizPage />} />
                     <Route path="/library"  element={<LibraryPage />} />
                     <Route path="/calendar" element={<CalendarPage />} />

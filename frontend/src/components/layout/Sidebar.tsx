@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import {
-  LayoutDashboard, Search, BrainCircuit, BookOpen,
+  Trees, LayoutDashboard, Search, BrainCircuit, BookOpen,
   CalendarDays, NotebookPen, Timer, Settings,
   LogOut,
 } from 'lucide-react';
@@ -10,9 +10,10 @@ const navGroups = [
   {
     label: 'Workspace',
     items: [
-      { to: '/',        label: 'Dashboard',  icon: LayoutDashboard, exact: true },
-      { to: '/search',  label: 'Search',     icon: Search },
-      { to: '/library', label: 'Library',    icon: BookOpen },
+      { to: '/tree',       label: 'Tree',      icon: Trees,           exact: true },
+      { to: '/dashboard',  label: 'Dashboard', icon: LayoutDashboard },
+      { to: '/search',     label: 'Search',    icon: Search },
+      { to: '/library',    label: 'Library',   icon: BookOpen },
     ],
   },
   {
